@@ -23,12 +23,11 @@ public class rockDodge extends ApplicationAdapter
 	@Override
 	public void render()
 	{
-		// [Alex] Changed background to black
-		// [Tran] Changed background to green.
-		Gdx.gl.glClearColor(0, 1, 0, 0);
+		// [Taj] Changing back to black. Testing over :D
+		Gdx.gl.glClearColor(1, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		
+
+		batch.begin();		
 		// [Alex] Commented next line because no image is being rendered
 		// batch.draw(img, 0, 0);
 		batch.end();
