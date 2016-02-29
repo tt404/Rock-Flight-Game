@@ -11,6 +11,7 @@ Ok for reference, this is how you send your updates.
 
 
 This is how you get updates. I recommend doing this every time you start.
+
 1. Go to the folder that has scroller-gdx and right click on an empty area -> Open with git bash
 2. If done correctly git bash should open with the directory with (master) written at the end in cyan.
 3. Do "git pull" and it should update.
