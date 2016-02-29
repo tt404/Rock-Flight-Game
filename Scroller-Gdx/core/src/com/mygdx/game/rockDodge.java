@@ -29,5 +29,7 @@ public class rockDodge extends ApplicationAdapter
 		// [Alex] Commented next line because no image is being rendered
 		//batch.draw(img, 0, 0);
 		batch.end();
+		
+		// [Tran] Just saying hi
 	}
 }
