@@ -15,6 +15,7 @@ public class rockDodge extends ApplicationAdapter
 	public void create()
 	{
 		batch = new SpriteBatch();
+		
 		// [Alex] Commented next line because errors
 		//img = new Texture("badlogic.jpg");
 	}
@@ -26,10 +27,9 @@ public class rockDodge extends ApplicationAdapter
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
+		
 		// [Alex] Commented next line because no image is being rendered
 		//batch.draw(img, 0, 0);
 		batch.end();
-		
-		// [Tran] Just saying hi
 	}
 }
