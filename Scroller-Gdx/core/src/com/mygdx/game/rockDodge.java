@@ -18,6 +18,8 @@ public class rockDodge extends ApplicationAdapter
 		
 		// [Alex] Commented next line because errors
 		//img = new Texture("badlogic.jpg");
+		
+		// [Taj] Uh oh.
 	}
 
 	@Override
