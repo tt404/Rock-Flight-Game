@@ -15,7 +15,8 @@ public class rockDodge extends ApplicationAdapter
 	public void create()
 	{
 		batch = new SpriteBatch();
-		
+		// [Alex] Test
+		//test
 		// [Alex] Commented next line because errors
 		//img = new Texture("badlogic.jpg");
 	}
