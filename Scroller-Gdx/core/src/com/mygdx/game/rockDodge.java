@@ -15,7 +15,7 @@ public class rockDodge extends ApplicationAdapter
 	public void create()
 	{
 		batch = new SpriteBatch();
-		
+
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
 	}
@@ -23,11 +23,26 @@ public class rockDodge extends ApplicationAdapter
 	@Override
 	public void render()
 	{
+		// [Taj] Organizing code, update and render are separated now.
+		update();
+		doRender();
+	}
+
+	// [Taj] This is where we're gonna do calculations, no graphics stuff.
+	// Things like the game loop go here.
+	public void update()
+	{
+
+	}
+
+	// [Taj] All graphics related things goes here.
+	public void doRender()
+	{
 		// [Taj] Changing back to black. Testing over :D
-		Gdx.gl.glClearColor(1, 0, 0, 0);
+		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		batch.begin();		
+		batch.begin();
 		// [Alex] Commented next line because no image is being rendered
 		// batch.draw(img, 0, 0);
 		batch.end();
