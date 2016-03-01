@@ -8,14 +8,23 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class rockDodge extends ApplicationAdapter
 {
+	// [Taj] Setup our classes
 	SpriteBatch batch;
 	player curPlayer;
+	background curBackground;
+	ui UI;
+	
+	
 
 	@Override
 	public void create()
 	{
+		// [Taj] Setting up the classes
 		batch = new SpriteBatch();
-		curPlayer = new player();
+		curPlayer = new player(this);
+		curBackground = new background(this);
+		UI = new ui(this);
+		
 
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
@@ -33,7 +42,10 @@ public class rockDodge extends ApplicationAdapter
 	// Things like the game loop go here.
 	public void update()
 	{
+		// [Taj] Calls the "update" method on each of these.
 		curPlayer.update();
+		curBackground.update();
+		UI.update();
 	}
 
 	// [Taj] All graphics related things goes here.
@@ -42,6 +54,11 @@ public class rockDodge extends ApplicationAdapter
 		// [Taj] Changing back to black. Testing over :D
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		// [Taj] Calls the "render" method on each of these.
+		curPlayer.render();
+		curBackground.render();
+		UI.render();
 
 		batch.begin();
 		

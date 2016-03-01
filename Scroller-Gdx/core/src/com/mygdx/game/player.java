@@ -4,10 +4,13 @@ package com.mygdx.game;
 // code for now.
 public class player
 {
+	// [Taj] The reference of the game.
+	rockDodge game;
+	
 	// [Taj] Initializer.
-	public player()
+	public player(rockDodge game)
 	{
-		
+		this.game = game;
 	}
 	
 	// [Taj] This updates things like coordinates.
