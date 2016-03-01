@@ -9,12 +9,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class rockDodge extends ApplicationAdapter
 {
 	SpriteBatch batch;
-	Texture img;
+	player curPlayer;
 
 	@Override
 	public void create()
 	{
 		batch = new SpriteBatch();
+		curPlayer = new player();
 
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
@@ -32,7 +33,7 @@ public class rockDodge extends ApplicationAdapter
 	// Things like the game loop go here.
 	public void update()
 	{
-
+		curPlayer.update();
 	}
 
 	// [Taj] All graphics related things goes here.
@@ -43,8 +44,11 @@ public class rockDodge extends ApplicationAdapter
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		batch.begin();
+		
 		// [Alex] Commented next line because no image is being rendered
 		// batch.draw(img, 0, 0);
 		batch.end();
+		
+		curPlayer.render();
 	}
 }
