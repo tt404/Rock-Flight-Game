@@ -26,6 +26,7 @@ public class player
 	int height;
 	float x;
 	float y;
+	float moveSpeed;
 	
 	// [Taj] Initializer.
 	public player(rockDodge game)
@@ -39,6 +40,8 @@ public class player
 							// a number be interpreted as a float. Since x and y
 							// are floats, as we declared above, we need to do this.
 		this.y = 100.f;		// [Taj] So now the default coords are (200, 100)
+
+		this.moveSpeed = 12.0f; // [Taj] This is how fast the player moves up and down
 		
 		// [Taj] Uncomment this once we use actual sprites.
 		//batch = new SpriteBatch();
@@ -50,6 +53,19 @@ public class player
 	// [Taj] This updates things like coordinates.
 	public void update()
 	{
+	}
+	
+	
+	// [Taj] Todo
+	public void moveUp()
+	{
+		
+	}
+	
+	// [Taj] Todo
+	public void moveDown()
+	{
+		
 	}
 	
 	// [Taj] Render the actual player here.
