@@ -13,6 +13,7 @@ public class rockDodge extends ApplicationAdapter
 	player curPlayer;
 	background curBackground;
 	ui UI;
+	input playerInput;
 	
 	
 
@@ -24,7 +25,7 @@ public class rockDodge extends ApplicationAdapter
 		curPlayer = new player(this);
 		curBackground = new background(this);
 		UI = new ui(this);
-		
+		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
 
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
@@ -46,6 +47,7 @@ public class rockDodge extends ApplicationAdapter
 		curPlayer.update();
 		curBackground.update();
 		UI.update();
+		playerInput.update();
 	}
 
 	// [Taj] All graphics related things goes here.
@@ -57,8 +59,6 @@ public class rockDodge extends ApplicationAdapter
 
 		// [Taj] Calls the "render" method on each of these.
 		curPlayer.render();
-		curBackground.render();
-		UI.render();
 
 		batch.begin();
 		

@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -27,6 +28,11 @@ public class player
 	float x;
 	float y;
 	float moveSpeed;
+	String inputText;
+	
+	// [Taj] This is to render text. This is used to show input as an example, dont worry
+	// about this too much.
+	BitmapFont inputFont;
 	
 	// [Taj] Initializer.
 	public player(rockDodge game)
@@ -43,11 +49,16 @@ public class player
 
 		this.moveSpeed = 12.0f; // [Taj] This is how fast the player moves up and down
 		
-		// [Taj] Uncomment this once we use actual sprites.
-		//batch = new SpriteBatch();
+		// [Taj] Renders sprites, and also fonts
+		batch = new SpriteBatch();
 		
 		// [Taj] Initialize our shape renderer
 		playerBox = new ShapeRenderer();
+		
+		// [Taj] well you get the idea now...
+		inputFont = new BitmapFont();
+		
+		inputText = "No Input";
 	}
 	
 	// [Taj] This updates things like coordinates.
@@ -85,5 +96,17 @@ public class player
 							// one big call. Why? Because of how hardware is designed 
 							// This style of rendering is efficient. It is better to
 							// make one BIG call instead of multiple smaller calls.
+
+		// [Taj] Lets render the text we get.
+		batch.begin();
+		inputFont.setColor(Color.WHITE);
+		inputFont.draw(batch, inputText, 100, 100); // [Taj] Draw.		
+		batch.end();	
+	}
+
+	// [Taj] I made this class as an EXAMPLE for player input. 
+	public void renderText(String text)
+	{						
+		inputText = text;
 	}
 }
