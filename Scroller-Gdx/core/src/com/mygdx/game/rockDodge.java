@@ -15,6 +15,8 @@ public class rockDodge extends ApplicationAdapter
 	ui UI;
 	input playerInput;
 	
+	Menu menu;
+	
 	
 
 	@Override
@@ -26,7 +28,8 @@ public class rockDodge extends ApplicationAdapter
 		curBackground = new background(this);
 		UI = new ui(this);
 		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
-
+		menu = new Menu(this);
+		
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
 	}
@@ -68,7 +71,7 @@ public class rockDodge extends ApplicationAdapter
 		curPlayer.render();
 	}
 	
-	
+	// [Tran] Returns the background.
 	public background getBackground()
 	{
 		return curBackground;
