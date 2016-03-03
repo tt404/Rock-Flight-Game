@@ -9,11 +9,13 @@ public class input
 	rockDodge game;
 	background back;
 	String text;
+	Menu menu;
 	public input(rockDodge game)
 	{
 		this.game = game; // [Taj] You know the drill....
 		this.text = "No input";
 		this.back = game.getBackground();
+		this.menu = game.getMenu();
 	}
 	
 	public void update()
@@ -23,6 +25,8 @@ public class input
 		{
 			// [Taj] This is just an example, we will draw text that says "up"
 			text = "up";
+			
+				menu.setState(1);    
 		}
 		
 		// [Taj] Guess what this does :p
@@ -30,11 +34,20 @@ public class input
 		{
 			// [Taj] This is just an example, we will draw text that says "down"
 			text = "down";
+			
 		}
 		//else if(Gdx.input.isButtonPressed(Input.Key)
 		else
 		{
 			text = "No input";
+		}
+		
+		
+		// [Tran] Test to change color, this also functions as keyup is just released.
+		if(!Gdx.input.isKeyPressed(Input.Keys.UP))
+		{
+			menu.setState(0);
+		
 		}
 		
 		// [Taj] Actually renders the text
