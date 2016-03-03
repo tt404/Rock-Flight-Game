@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 
+//[Tran] Menu class to handle menu states.
 public class Menu {
 
 	private int curState; //Current state of the game

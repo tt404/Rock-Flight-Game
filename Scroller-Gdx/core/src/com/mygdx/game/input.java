@@ -26,6 +26,7 @@ public class input
 			// [Taj] This is just an example, we will draw text that says "up"
 			text = "up";
 			
+			// [Tran] Test to change menu state.
 				menu.setState(1);    
 		}
 		
@@ -43,7 +44,7 @@ public class input
 		}
 		
 		
-		// [Tran] Test to change color, this also functions as keyup is just released.
+		// [Tran] Test to change color, this also functions as key not pressed.
 		if(!Gdx.input.isKeyPressed(Input.Keys.UP))
 		{
 			menu.setState(0);

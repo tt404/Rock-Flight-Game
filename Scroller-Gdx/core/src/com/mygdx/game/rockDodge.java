@@ -23,12 +23,12 @@ public class rockDodge extends ApplicationAdapter
 	public void create()
 	{
 		// [Taj] Setting up the classes
-		menu = new Menu(this); //[Tran] This has to be before some of these calls.
+		
 		batch = new SpriteBatch();
 		curPlayer = new player(this);
 		curBackground = new background(this);
 		UI = new ui(this);
-		
+		menu = new Menu(this); //[Tran] This has to be before some of these calls.
 		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
 		
 		
