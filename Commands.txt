@@ -1,0 +1,13 @@
+Similar to linux
+
+1 time)        git init
+2 grab folder) git pull (url)
+
+to upload:
+
+1) git bash at git Workspace
+2) git commit 
+3) git push --set-upstream https://github.com/ttaj/Rock-Flight-Game master
+4) Username then pw. Upload complete
+
+ex: git pull https://github.com/ttaj/Rock-Flight-Game
