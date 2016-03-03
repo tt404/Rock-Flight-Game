@@ -40,8 +40,7 @@ public class ui
 		// your rendering stuff with batch.begin and batch.end
 		
 		batch.begin();
-		font.setColor(Color.WHITE);
-		font.draw(batch, "Hello", 100, 100); // [Taj] Draw.
+		// [Taj] Stuff goes here.
 		batch.end();
 	}
 }
