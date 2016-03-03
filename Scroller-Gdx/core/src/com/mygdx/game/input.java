@@ -7,11 +7,13 @@ import com.badlogic.gdx.Input;
 public class input
 {
 	rockDodge game;
+	background back;
 	String text;
 	public input(rockDodge game)
 	{
 		this.game = game; // [Taj] You know the drill....
 		this.text = "No input";
+		this.back = game.getBackground();
 	}
 	
 	public void update()

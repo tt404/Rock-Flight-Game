@@ -67,4 +67,10 @@ public class rockDodge extends ApplicationAdapter
 		
 		curPlayer.render();
 	}
+	
+	
+	public background getBackground()
+	{
+		return curBackground;
+	}
 }
