@@ -53,9 +53,8 @@ public class rockDodge extends ApplicationAdapter
 	// [Taj] All graphics related things goes here.
 	public void doRender()
 	{
-		// [Taj] Changing back to black. Testing over :D
-		Gdx.gl.glClearColor(0, 0, 0, 0);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		// [Tran] Changed background color control to background class.
+		curBackground.render();
 
 		// [Taj] Calls the "render" method on each of these.
 		curPlayer.render();
