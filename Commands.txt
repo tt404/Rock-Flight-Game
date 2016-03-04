@@ -11,3 +11,4 @@ to upload:
 4) Username then pw. Upload complete
 
 ex: git pull https://github.com/ttaj/Rock-Flight-Game
+git push https://github.com/ttaj/Rock-Flight-Game
