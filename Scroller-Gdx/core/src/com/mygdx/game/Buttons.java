@@ -1,7 +1,9 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -10,32 +12,63 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 
 public class Buttons
 {
-	Stage stage;
-	TextButton button;
-	TextButtonStyle textButtonStyle;
+	String text;
 	BitmapFont font;
-	Skin skin;
-	TextureAtlas buttonAtlas;
+	SpriteBatch batch;
+	float x;
+	float y;
+	float scale;
+	
+	float width;
+	float height;
 
-	public Buttons()
+	boolean stringText; // [Taj] True means this is a string button.
+						// False means this is an image button.
+	
+	String imgDirectory;
+	
+	// [Taj] This constructor makes basic text buttons
+	public Buttons(String text, float x, float y, float scale)
 	{
-		stage = new Stage();
-		Gdx.input.setInputProcessor(stage);
+		stringText = true;
+		
+		this.text = text;
+		this.x = x;
+		this.y = y;
+		this.scale = scale;
 		font = new BitmapFont();
-		skin = new Skin();
-		buttonAtlas = new TextureAtlas(Gdx.files.internal("buttons/buttons.pack"));
-		skin.addRegions(buttonAtlas);
-		textButtonStyle = new TextButtonStyle();
-		textButtonStyle.font = font;
-		textButtonStyle.up = skin.getDrawable("up-button");
-		textButtonStyle.down = skin.getDrawable("down-button");
-		textButtonStyle.checked = skin.getDrawable("checked-button");
-		button = new TextButton("Button1", textButtonStyle);
-		stage.addActor(button);
+		batch = new SpriteBatch();
 	}
 
+	public Buttons(String imgDirectory, float x, float y)
+	{
+		stringText = false;
+	}
+	
+	public void update()
+	{
+		// [Taj] String buttons and image buttons have separate update and render
+		// functions.
+		
+		if(stringText == true)
+			updateTextButton();
+		
+		// [Taj] Todo, get it working with images.
+	}
+	
+	public void updateTextButton()
+	{
+		
+	}
+	
 	public void render()
 	{
-		stage.draw();
+		if(stringText == true)
+			renderTextButton();
+	}
+	
+	public void renderTextButton()
+	{
+		
 	}
 }
