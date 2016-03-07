@@ -18,8 +18,9 @@ public class Menu {
 	GlyphLayout inputFont; //This and the two below are for sprites/fonts.
 	BitmapFont Font;
 	SpriteBatch batch;
+
 	
-	private String MENUTEXT = "Testing";
+	private String MENUTEXT = "Rock Dodger";
 	
 	public Menu(rockDodge game)
 	{
