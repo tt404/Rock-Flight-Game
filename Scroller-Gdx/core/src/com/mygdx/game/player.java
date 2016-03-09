@@ -72,15 +72,29 @@ public class player
 	// [Taj] Todo
 	public void moveUp()
 	{
-		// [Alex] moves playerBox up by incrementing Y coordinate
-		this.y += moveSpeed;
+		// [Alex] moves playerBox up by incrementing Y coordinate, Now with Boundaries
+		if(this.y >= Gdx.graphics.getHeight() - 32)
+		{
+			this.y = Gdx.graphics.getHeight() - 32;
+		}
+		else 
+		{
+			this.y += moveSpeed;
+		}
 	}
 	
 	// [Taj] Todo
 	public void moveDown()
 	{
-		// [Alex] moves playerBox down by decrementing Y coordinate
-		this.y -= moveSpeed;
+		// [Alex] moves playerBox down by decrementing Y coordinate, Now with Boundaries
+		if(this.y <= 0)
+		{
+			this.y = 0;
+		}
+		else 
+		{
+			this.y -= moveSpeed;
+		}
 	}
 	
 	// [Taj] Render the actual player here.
