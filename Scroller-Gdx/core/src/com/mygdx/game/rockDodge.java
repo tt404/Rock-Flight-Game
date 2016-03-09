@@ -14,6 +14,7 @@ public class rockDodge extends ApplicationAdapter
 	background curBackground;
 	ui UI;
 	input playerInput;
+	Buttons button;
 	
 	Menu menu;
 	
@@ -31,7 +32,7 @@ public class rockDodge extends ApplicationAdapter
 		menu = new Menu(this); //[Tran] This has to be before some of these calls.
 		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
 		
-		
+		button = new Buttons("Testing", 100, 150, 1);
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
 	}

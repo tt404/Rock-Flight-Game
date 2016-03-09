@@ -18,6 +18,9 @@ public class Menu {
 	GlyphLayout inputFont; //This and the two below are for sprites/fonts.
 	BitmapFont Font;
 	SpriteBatch batch;
+	
+	private float screenHeight;
+	private float screenWidth;
 
 	
 	private String MENUTEXT = "Rock Dodger";
@@ -42,7 +45,8 @@ public class Menu {
 	
 	public void update()
 	{
-		
+		screenHeight = Gdx.graphics.getHeight();  //Added this so values are called a frame before render.
+		screenWidth = Gdx.graphics.getWidth();    //Use these values instead of calling the function.
 	}
 	
 	public void render()
@@ -58,7 +62,7 @@ public class Menu {
 		// [Tran] Draw this MENUTEXT to the screen based on screen height and xPos variable.
 		batch.begin();
 		Font.setColor(Color.WHITE);
-		Font.draw(batch, MENUTEXT, xPos, Gdx.graphics.getHeight()/2);	
+		Font.draw(batch, MENUTEXT, xPos, 3*screenHeight/4 + (float)Math.sin(xPos/50)*screenHeight/8);	
 		batch.end();	
 	}
 	
