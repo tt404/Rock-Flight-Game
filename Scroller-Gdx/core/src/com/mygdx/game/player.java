@@ -72,13 +72,15 @@ public class player
 	// [Taj] Todo
 	public void moveUp()
 	{
-		
+		// [Alex] moves playerBox up by incrementing Y coordinate
+		this.y++;
 	}
 	
 	// [Taj] Todo
 	public void moveDown()
 	{
-		
+		// [Alex] moves playerBox down by decrementing Y coordinate
+		this.y--;
 	}
 	
 	// [Taj] Render the actual player here.
@@ -93,7 +95,7 @@ public class player
 		playerBox.rect(x, y, width, height); // [Taj] This part makes the rectangle
 		
 		playerBox.end();	// [Taj] Because of how libgdx works we need this end part.
-							// It basically accumilates everything we called between
+							// It basically accumulates everything we called between
 							// begin() and end(), and then combines all of that into
 							// one big call. Why? Because of how hardware is designed 
 							// This style of rendering is efficient. It is better to
