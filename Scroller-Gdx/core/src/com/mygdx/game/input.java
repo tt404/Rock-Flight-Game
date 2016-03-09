@@ -28,6 +28,9 @@ public class input
 			
 			// [Tran] Test to change menu state.
 				menu.setState(1);    
+				
+			// [Alex] calling moveUp function
+				game.curPlayer.moveUp();
 		}
 		
 		// [Taj] Guess what this does :p
@@ -36,6 +39,8 @@ public class input
 			// [Taj] This is just an example, we will draw text that says "down"
 			text = "down";
 			
+			// [Alex] calling moveDown function
+			game.curPlayer.moveDown();
 		}
 		//else if(Gdx.input.isButtonPressed(Input.Key)
 		else
