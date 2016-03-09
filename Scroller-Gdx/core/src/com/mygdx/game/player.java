@@ -108,9 +108,11 @@ public class player
 		batch.end();	
 	}
 
-	// [Taj] I made this class as an EXAMPLE for player input. 
+	// [Alex] exemplary class not needed
+	/*
 	public void renderText(String text)
 	{						
 		inputText = text;
 	}
+	*/
 }

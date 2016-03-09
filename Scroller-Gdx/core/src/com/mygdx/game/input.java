@@ -23,8 +23,8 @@ public class input
 		// [Taj] Does whatever is inside the brackets if the up arrow key is pressed.
 		if(Gdx.input.isKeyPressed(Input.Keys.UP))
 		{
-			// [Taj] This is just an example, we will draw text that says "up"
-			text = "up";
+			// [Alex] Don't need
+			//text = "up";
 			
 			// [Tran] Test to change menu state.
 				menu.setState(1);    
@@ -37,7 +37,7 @@ public class input
 		else if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
 		{
 			// [Taj] This is just an example, we will draw text that says "down"
-			text = "down";
+			//text = "down";
 			
 			// [Alex] calling moveDown function
 			game.curPlayer.moveDown();
@@ -45,7 +45,8 @@ public class input
 		//else if(Gdx.input.isButtonPressed(Input.Key)
 		else
 		{
-			text = "No input";
+			// [Alex] Don't need
+			//text = "No input";
 		}
 		
 		
@@ -56,7 +57,7 @@ public class input
 		
 		}
 		
-		// [Taj] Actually renders the text
-		game.curPlayer.renderText(text);			
+		// [Alex] Because Talha TOLD ME TO!
+		//game.curPlayer.renderText(text);			
 	}
 }
