@@ -73,14 +73,14 @@ public class player
 	public void moveUp()
 	{
 		// [Alex] moves playerBox up by incrementing Y coordinate
-		this.y++;
+		this.y += moveSpeed;
 	}
 	
 	// [Taj] Todo
 	public void moveDown()
 	{
 		// [Alex] moves playerBox down by decrementing Y coordinate
-		this.y--;
+		this.y -= moveSpeed;
 	}
 	
 	// [Taj] Render the actual player here.
