@@ -44,7 +44,7 @@ public class player
 		// [Taj] Setup our player...
 		this.width = 32;
 		this.height = 32;
-		this.x = 200.0f;	// [Taj] Java is a bit weird, you need to add "f" for 
+		this.x = 0f;	// [Taj] Java is a bit weird, you need to add "f" for 
 							// a number be interpreted as a float. Since x and y
 							// are floats, as we declared above, we need to do this.
 		this.y = 100.f;		// [Taj] So now the default coords are (200, 100)
