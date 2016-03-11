@@ -32,7 +32,8 @@ public class rockDodge extends ApplicationAdapter
 		menu = new Menu(this); //[Tran] This has to be before some of these calls.
 		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
 		
-		button = new Buttons("Testing", 100, 150, 1);
+		button = new Buttons("Testing", 0, 100, 1); //(Button name, xPos, yPos, scale)
+		button.setButtonSize(100, 50);           // (Width, Height)
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
 	}
@@ -52,6 +53,7 @@ public class rockDodge extends ApplicationAdapter
 		// [Taj] Calls the "update" method on each of these.
 		curPlayer.update();
 		curBackground.update();
+		button.update();
 		UI.update();
 		playerInput.update();
 		menu.update();
@@ -63,7 +65,7 @@ public class rockDodge extends ApplicationAdapter
 		// [Tran] Changed background color control to background class.
 		curBackground.render();
 		menu.render();
-		
+		button.render();
 
 		// [Taj] Calls the "render" method on each of these.
 		curPlayer.render();
@@ -92,4 +94,6 @@ public class rockDodge extends ApplicationAdapter
 	{
 		return menu;
 	}
+	
+
 }

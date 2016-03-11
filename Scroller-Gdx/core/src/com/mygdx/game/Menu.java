@@ -2,11 +2,15 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 //[Tran] Menu class to handle menu states.
 public class Menu {
@@ -23,6 +27,10 @@ public class Menu {
 	private float screenWidth;
 
 	
+	
+	private Skin skin;
+	private Stage stage;
+	
 	private String MENUTEXT = "Rock Dodger";
 	
 	public Menu(rockDodge game)
@@ -35,6 +43,25 @@ public class Menu {
         inputFont = new GlyphLayout();
 		Font = new BitmapFont();
 		
+		/*
+		FileHandle handle = Gdx.files.internal("master/uiskin.json");
+		if(handle.exists())
+		{
+
+			System.out.println("yes");
+			//skin = new Skin(Gdx.files.internal("master/uiskin.json"));
+
+		}
+		else
+			
+		{
+			System.out.println("no");
+		}
+		 */
+      
+		
+        
+        
 	}
 	
 	public void setState(int gameState)
@@ -51,6 +78,8 @@ public class Menu {
 	
 	public void render()
 	{
+		
+		
 		// [Tran] This xPos and if statement is to scroll the text from the left to right side of the screen.
 		xPos += 3;
 		if(xPos >= Gdx.graphics.getWidth())

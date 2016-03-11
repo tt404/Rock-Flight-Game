@@ -10,12 +10,16 @@ public class input
 	background back;
 	String text;
 	Menu menu;
+	private boolean isMousePress;   //Checked if we can click mouse or not.
+	private boolean isClickedButton;//Checked if a button was successfully clicked.
+	
 	public input(rockDodge game)
 	{
 		this.game = game; // [Taj] You know the drill....
 		this.text = "No input";
 		this.back = game.getBackground();
 		this.menu = game.getMenu();
+		this.isMousePress = false;
 	}
 	
 	public void update()
@@ -49,13 +53,47 @@ public class input
 			//text = "No input";
 		}
 		
-		
-		// [Tran] Test to change color, this also functions as key not pressed.
-		if(!Gdx.input.isKeyPressed(Input.Keys.UP))
+		// [Tran] A mouse click for buttons, only reacts once, AND only after the mouse is released inside the button.
+		// [Tran] Mouse click. First check if the left mouse button was clicked or not, secondary check (isMousePress): only click once (explained below)
+		if(Gdx.input.isButtonPressed(Input.Buttons.LEFT) && isMousePress == false)
 		{
-			menu.setState(0);
-		
+			isClickedButton = game.button.isClickedOn(Gdx.input.getX(), Gdx.input.getY()); //Recieve if the first initial click is within a button range.
+			System.out.println("click");
+			isMousePress = true;  //Now make it so that the button cannot be refired again (the Gdx.input fires process step, so this is necessary to prevent multiple clicks in one click)
 		}
+		else if(isClickedButton == true)  //If our initial click is within a range of a button...
+		{
+				if(game.button.isInRange(Gdx.input.getX(), Gdx.input.getY()) == true) //Check if the mouse is still in RANGE of the button
+				{
+					if(!Gdx.input.isButtonPressed(Input.Buttons.LEFT))     //If the mouse at this point is released, then accept and do the following.
+					{
+						System.out.println("(insert button event here)"); //Insert some event here.
+						game.button.setClickedOn(false);     //Button sucessfully clicked.
+						isMousePress = false;                //Allow button pressing again.
+						isClickedButton = false;             //Allow for a different button to be pressed.
+					}
+					
+				}
+				else                  //Else if the button is not in range, the mouse press is considered to have failed, so reset
+				{
+					isMousePress = false;
+					isClickedButton = false;
+					
+				}
+		}
+		else if(isClickedButton == false)  //If we don't click on any button, then just reset things
+		{
+			if(!Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+			{
+				isMousePress = false;
+			}
+		} 
+		
+		game.button.isInRange(Gdx.input.getX(), Gdx.input.getY()); //[Tran] Always call this to check if the mouse is in range of any buttons.
+			
+		
+		
+		
 		
 		// [Alex] Because Talha TOLD ME TO!
 		//game.curPlayer.renderText(text);			
