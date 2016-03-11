@@ -44,7 +44,7 @@ public class player
 		// [Taj] Setup our player...
 		this.width = 32;
 		this.height = 32;
-		this.x = 200.0f;	// [Taj] Java is a bit weird, you need to add "f" for 
+		this.x = 0f;	// [Taj] Java is a bit weird, you need to add "f" for 
 							// a number be interpreted as a float. Since x and y
 							// are floats, as we declared above, we need to do this.
 		this.y = 100.f;		// [Taj] So now the default coords are (200, 100)
@@ -72,15 +72,29 @@ public class player
 	// [Taj] Todo
 	public void moveUp()
 	{
-		// [Alex] moves playerBox up by incrementing Y coordinate
-		this.y += moveSpeed;
+		// [Alex] moves playerBox up by incrementing Y coordinate, Now with Boundaries
+		if(this.y >= Gdx.graphics.getHeight() - 32)
+		{
+			this.y = Gdx.graphics.getHeight() - 32;
+		}
+		else 
+		{
+			this.y += moveSpeed;
+		}
 	}
 	
 	// [Taj] Todo
 	public void moveDown()
 	{
-		// [Alex] moves playerBox down by decrementing Y coordinate
-		this.y -= moveSpeed;
+		// [Alex] moves playerBox down by decrementing Y coordinate, Now with Boundaries
+		if(this.y <= 0)
+		{
+			this.y = 0;
+		}
+		else 
+		{
+			this.y -= moveSpeed;
+		}
 	}
 	
 	// [Taj] Render the actual player here.
