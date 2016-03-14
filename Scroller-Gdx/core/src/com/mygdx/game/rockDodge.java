@@ -15,8 +15,6 @@ public class rockDodge extends ApplicationAdapter
 	ui UI;
 	input playerInput;
 	Buttons button;
-	obstacleGenerator rockGenerator;
-	
 	
 	Menu menu;
 	
@@ -33,10 +31,9 @@ public class rockDodge extends ApplicationAdapter
 		UI = new ui(this);
 		menu = new Menu(this); //[Tran] This has to be before some of these calls.
 		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
-		rockGenerator = new obstacleGenerator();
 		
-		button = new Buttons("Testing", 100, 100, 1); //(Button name, xPos, yPos, scale)
-		button.setButtonSize(100, 50);           // (Width, Height)
+		button = new Buttons(this,"Start", .3f, .0f, 1); //(Button name, x Scaling, y Scale, scale)
+		button.setButtonSize(0.4f, 0.15f);           // (Width, Height)
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
 	}
@@ -60,7 +57,6 @@ public class rockDodge extends ApplicationAdapter
 		UI.update();
 		playerInput.update();
 		menu.update();
-		rockGenerator.update();
 	}
 
 	// [Taj] All graphics related things goes here.
@@ -69,10 +65,19 @@ public class rockDodge extends ApplicationAdapter
 		// [Tran] Changed background color control to background class.
 		curBackground.render();
 		menu.render();
-		button.render();
+		
+		
 
-		// [Taj] Calls the "render" method on each of these.
-		curPlayer.render();
+		// [Tran] Draw the player when the game is running, else draw the menu buttons, should add UI text (score, objects, etc) along with player.
+		if(menu.getState().equals("Game"))
+		{
+			curPlayer.render();
+		}
+		else
+		{
+			button.render();
+		}
+		
 
 		batch.begin();
 		
@@ -80,8 +85,7 @@ public class rockDodge extends ApplicationAdapter
 		// batch.draw(img, 0, 0);
 		batch.end();
 		
-		curPlayer.render();
-		rockGenerator.render();
+
 	}
 	
 	// [Tran] Returns the background, playerInput and menu.

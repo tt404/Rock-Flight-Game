@@ -31,7 +31,7 @@ public class input
 			//text = "up";
 			
 			// [Tran] Test to change menu state.
-				menu.setState(1);    
+				   
 				
 			// [Alex] calling moveUp function
 				game.curPlayer.moveUp();
@@ -67,8 +67,8 @@ public class input
 				{
 					if(!Gdx.input.isButtonPressed(Input.Buttons.LEFT))     //If the mouse at this point is released, then accept and do the following.
 					{
-						System.out.println("(insert button event here)"); //Insert some event here.
-						
+						System.out.println(game.button.text); //Insert some event here.
+						game.button.buttonEvent(game.menu.getState());
 						game.button.setClickedOn(false);     //Button sucessfully clicked.
 						isMousePress = false;                //Allow button pressing again.
 						isClickedButton = false;             //Allow for a different button to be pressed.
