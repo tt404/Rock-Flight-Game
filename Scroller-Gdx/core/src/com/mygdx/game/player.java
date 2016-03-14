@@ -116,10 +116,12 @@ public class player
 							// make one BIG call instead of multiple smaller calls.
 
 		// [Taj] Lets render the text we get.
+		/*
 		batch.begin();
 		inputFont.setColor(Color.WHITE);
 		inputFont.draw(batch, inputText, 100, 100); // [Taj] Draw.		
-		batch.end();	
+		batch.end();
+		*/	
 	}
 
 	// [Alex] exemplary class not needed
