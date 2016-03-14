@@ -176,7 +176,8 @@ public class Buttons {
 		{
 			//game.menu.setState("Instructions"); //Uncomment this if you want the button to go to instructions first.
 			game.menu.setState("Game");
-			setText("Begin Game");
+			setText("");
+			//setText("Begin Game");
 		}
 		else if(event.equals("Instructions"))
 		{

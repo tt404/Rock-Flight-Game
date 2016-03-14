@@ -35,6 +35,7 @@ public class obstacleGenerator
 	public obstacleGenerator()
 	{
 		gapDecreaseAmount = (maxGapSize - minGapSize) / maxGapDecreases;
+		rockGenerationLoop();
 		generateRocks();
 	}
 
@@ -122,9 +123,12 @@ public class obstacleGenerator
 			public void run()
 			{
 				updateValues();
-			}
+				System.out.println("test");
+				rockGenerationLoop();
+			} 
+			
 
-		}, 15.0f);
-		rockGenerationLoop();
+		}, 5.0f);
+
 	}
 }
