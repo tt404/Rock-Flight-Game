@@ -21,6 +21,8 @@ public class obstacle
 	Rectangle hitbox;
 	ShapeRenderer obstacleRender;
 	
+	boolean dead = false;
+	
 	// [Taj] Initializer.
 	public obstacle(float x, float y, float width, float height, float speed)
 	{
@@ -46,9 +48,20 @@ public class obstacle
 	// [Taj] Render the actual obstacle here.
 	public void render()
 	{
+		System.out.println("x: " + x + " y: " + y + " width: " + width + " height: " + height);
 		obstacleRender.begin(ShapeType.Filled);
-		obstacleRender.setColor(Color.BROWN);
+		obstacleRender.setColor(Color.GREEN);
 		obstacleRender.rect(x, y, width, height);
 		obstacleRender.end();
+	}
+
+	public void die()
+	{
+		dead = true;
+	}
+	
+	public boolean isDead()
+	{
+		return dead;
 	}
 }
