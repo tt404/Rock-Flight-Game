@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.Timer.Task;
 
 // [Taj] This class will have everything player related, its just skeleton
 // code for now.
@@ -31,6 +33,9 @@ public class player
 	float y;
 	float moveSpeed;
 	String inputText;
+	// [Alex] Score string and int
+	int score = 0;
+	String scoreText = "Score: ";
 	
 	// [Taj] This is to render text. This is used to show input as an example, dont worry
 	// about this too much.
@@ -61,6 +66,8 @@ public class player
 		inputFont = new BitmapFont();
 		
 		inputText = "No Input";
+		// [Alex] Calling scoreTimer function from default constructor
+		scoreTimer();
 	}
 	
 	// [Taj] This updates things like coordinates.
@@ -115,14 +122,24 @@ public class player
 							// This style of rendering is efficient. It is better to
 							// make one BIG call instead of multiple smaller calls.
 
-		// [Taj] Lets render the text we get.
-		/*
+		// [Alex] 
 		batch.begin();
 		inputFont.setColor(Color.WHITE);
-		inputFont.draw(batch, inputText, 100, 100); // [Taj] Draw.		
+		inputFont.draw(batch, scoreText + score, 100, 100); // [Taj] Draw.		
 		batch.end();
-		*/	
+		
 	}
+	// [Alex] This function increments the score by 1
+public void scoreTimer()
+{
+	Timer.schedule(new Task(){
+	    public void run() {
+		        score++;
+		        scoreTimer();
+			}
+	   
+	}, 1.0f);
+}
 
 	// [Alex] exemplary class not needed
 	/*
