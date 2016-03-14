@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
@@ -11,9 +12,9 @@ public class obstacleGenerator
 {
 	public ArrayList<obstacle> obstacles = new ArrayList<obstacle>();
 
-	float initSpeed = 2.0f;
-	float curSpeed = 2.0f;
-	float speedIncreaseVal = 4.0f;
+	float initSpeed = 8.0f;
+	float curSpeed = 8.0f;
+	float speedIncreaseVal = 6.0f;
 	int curSpeedStage = 1;
 	int maxSpeedIncreases = 8;
 
@@ -45,15 +46,17 @@ public class obstacleGenerator
 
 		obstacle top = new obstacle(Gdx.graphics.getWidth(), y+curGapSize, 64,
 				Gdx.graphics.getHeight(), curSpeed);
-		obstacle bottom = new obstacle(Gdx.graphics.getWidth(), y, 64, Gdx.graphics.getHeight(), curSpeed);
+		obstacle bottom = new obstacle(Gdx.graphics.getWidth(), y - Gdx.graphics.getHeight(), 64, Gdx.graphics.getHeight(), curSpeed);
 
 		obstacles.add(top);
-		//obstacles.add(bottom);
+		obstacles.add(bottom);
 	}
 
 	public void update()
 	{
 		if(obstacles.size() == 0) return;
+		
+		
 		
 		for(int i = 0; i < obstacles.size(); i++)
 		{
@@ -64,16 +67,22 @@ public class obstacleGenerator
 				spawnNew = true;
 			}
 		}		
-		
-		for(int i = 0; i < obstacles.size(); i++)
-			if(obstacles.get(i).isDead() == true)
-			{
-				obstacles.remove(i);
-				System.out.println(obstacles.size());
-			}
-		
+				
 		if(spawnNew == true)
 		{
+
+			Iterator<obstacle> i = obstacles.iterator();
+			while(i.hasNext())
+			{
+				obstacle x = i.next();
+				
+				if(x.isDead() == true)
+				{
+					i.remove();
+				}
+			}
+
+
 			spawnNew = false;
 			generateRocks();
 		}
