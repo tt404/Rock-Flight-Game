@@ -40,36 +40,15 @@ public class obstacleGenerator
 	public void generateRocks()
 	{
 		Random rand = new Random();
-		boolean tophalf = rand.nextBoolean();
+		int y = rand.nextInt(Gdx.graphics.getHeight()-((int) curGapSize));
+		
 
-		float topY;
-		float bottomY;
-		int min;
-		int max;
-
-		if (tophalf == true)
-		{
-			min = Gdx.graphics.getHeight() / 2;
-			max = min * 2;
-
-			topY = rand.nextInt(min) + min;
-			bottomY = topY - curGapSize;
-		} 
-		else
-		{
-			min = 0;
-			max = Gdx.graphics.getHeight() / 2;
-
-			bottomY = rand.nextInt(max);
-			topY = bottomY + curGapSize;
-		}
-
-		obstacle top = new obstacle(Gdx.graphics.getWidth(), topY + Gdx.graphics.getHeight(), 64,
+		obstacle top = new obstacle(Gdx.graphics.getWidth(), y+curGapSize, 64,
 				Gdx.graphics.getHeight(), curSpeed);
-		obstacle bottom = new obstacle(Gdx.graphics.getWidth(), bottomY, 64, Gdx.graphics.getHeight(), curSpeed);
+		obstacle bottom = new obstacle(Gdx.graphics.getWidth(), y, 64, Gdx.graphics.getHeight(), curSpeed);
 
 		obstacles.add(top);
-		obstacles.add(bottom);
+		//obstacles.add(bottom);
 	}
 
 	public void update()
@@ -86,15 +65,18 @@ public class obstacleGenerator
 			}
 		}		
 		
+		for(int i = 0; i < obstacles.size(); i++)
+			if(obstacles.get(i).isDead() == true)
+			{
+				obstacles.remove(i);
+				System.out.println(obstacles.size());
+			}
+		
 		if(spawnNew == true)
 		{
 			spawnNew = false;
 			generateRocks();
 		}
-				
-		for(int i = 0; i < obstacles.size(); i++)
-			if(obstacles.get(i).isDead() == true)
-				obstacles.remove(i);
 		
 	}
 

@@ -48,7 +48,8 @@ public class obstacle
 	// [Taj] Render the actual obstacle here.
 	public void render()
 	{
-		System.out.println("x: " + x + " y: " + y + " width: " + width + " height: " + height);
+		// [Taj] For debugging...
+		//System.out.println("x: " + x + " y: " + y + " width: " + width + " height: " + height);
 		obstacleRender.begin(ShapeType.Filled);
 		obstacleRender.setColor(Color.GREEN);
 		obstacleRender.rect(x, y, width, height);
