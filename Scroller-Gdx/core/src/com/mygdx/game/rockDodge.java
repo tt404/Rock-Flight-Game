@@ -32,7 +32,7 @@ public class rockDodge extends ApplicationAdapter
 		menu = new Menu(this); //[Tran] This has to be before some of these calls.
 		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
 		
-		button = new Buttons("Testing", 0, 100, 1); //(Button name, xPos, yPos, scale)
+		button = new Buttons("Testing", 100, 100, 1); //(Button name, xPos, yPos, scale)
 		button.setButtonSize(100, 50);           // (Width, Height)
 		// [Alex] Commented next line because errors
 		// img = new Texture("badlogic.jpg");
