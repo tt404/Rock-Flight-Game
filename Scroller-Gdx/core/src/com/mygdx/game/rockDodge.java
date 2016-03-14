@@ -15,6 +15,8 @@ public class rockDodge extends ApplicationAdapter
 	ui UI;
 	input playerInput;
 	Buttons button;
+	obstacleGenerator rockGenerator;
+	
 	
 	Menu menu;
 	
@@ -31,6 +33,7 @@ public class rockDodge extends ApplicationAdapter
 		UI = new ui(this);
 		menu = new Menu(this); //[Tran] This has to be before some of these calls.
 		playerInput = new input(this); // [Taj] This as in, the rockDodge game itself.
+		rockGenerator = new obstacleGenerator();
 		
 		button = new Buttons("Testing", 0, 100, 1); //(Button name, xPos, yPos, scale)
 		button.setButtonSize(100, 50);           // (Width, Height)
@@ -57,6 +60,7 @@ public class rockDodge extends ApplicationAdapter
 		UI.update();
 		playerInput.update();
 		menu.update();
+		rockGenerator.update();
 	}
 
 	// [Taj] All graphics related things goes here.
@@ -77,6 +81,7 @@ public class rockDodge extends ApplicationAdapter
 		batch.end();
 		
 		curPlayer.render();
+		rockGenerator.render();
 	}
 	
 	// [Tran] Returns the background, playerInput and menu.
