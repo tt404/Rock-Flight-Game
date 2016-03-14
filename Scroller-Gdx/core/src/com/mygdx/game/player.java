@@ -80,9 +80,9 @@ public class player
 	public void moveUp()
 	{
 		// [Alex] moves playerBox up by incrementing Y coordinate, Now with Boundaries
-		if(this.y >= Gdx.graphics.getHeight() - 32)
+		if(this.y >= Gdx.graphics.getHeight() - this.height)
 		{
-			this.y = Gdx.graphics.getHeight() - 32;
+			this.y = Gdx.graphics.getHeight() - this.height;
 		}
 		else 
 		{

@@ -12,7 +12,6 @@ public class input
 	Menu menu;
 	private boolean isMousePress;   //Checked if we can click mouse or not.
 	private boolean isClickedButton;//Checked if a button was successfully clicked.
-	
 	public input(rockDodge game)
 	{
 		this.game = game; // [Taj] You know the drill....
