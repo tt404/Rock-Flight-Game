@@ -80,17 +80,21 @@ public class Buttons {
         if(isClickedOn == false && isMouseOver == false)
         {
         	buttonBox.setColor(Color.WHITE); 
+        	buttonBox.rect(x, y, width, height); //Button x,y,width and height
         }
         else if(isClickedOn == false && isMouseOver == true)
         {
-        	buttonBox.setColor(Color.GREEN); 
+        	buttonBox.setColor(Color.GREEN);
+        	buttonBox.rect(x-(100*width/95 - width)/2, y-(100*height/95 - height)/2, 100*width/95, 100*height/95); //Button x,y,width and height
         }
         else if(isClickedOn == true)
         { 	
-        	buttonBox.setColor(Color.BLUE); 
+        	buttonBox.setColor(Color.BLUE);
+        	setButtonSize(width, height);
+        	buttonBox.rect(x-(100*width/105 - width)/2, y-(100*height/105 - height)/2, 100*width/105, 100*height/105); //Button x,y,width and height
         }
 		
-		buttonBox.rect(x, y, width, height); //Button x,y,width and height
+		
 		buttonBox.end(); 
 
 
