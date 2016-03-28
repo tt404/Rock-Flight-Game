@@ -12,23 +12,24 @@ public class obstacleGenerator
 {
 	public ArrayList<obstacle> obstacles = new ArrayList<obstacle>();
 
-	float initSpeed = 8.0f;
-	float curSpeed = 8.0f;
-	float speedIncreaseVal = 6.0f;
+	float initSpeed = 11.0f;
+	float curSpeed = initSpeed;
+	float speedIncreaseVal = 1.0f;
 	int curSpeedStage = 1;
-	int maxSpeedIncreases = 8;
+	int maxSpeedIncreases = 12;
 
 	float curTime = 0.0f;
 	float breakTime = 3.0f;
-	float timePerStage = 15.0f; // [Taj] 15 seconds
+	float timePerStage = 3.0f; // [Taj] 3 seconds
 
 	float curGapSize = 196.0f;
 	float maxGapSize = 196.0f;
 	float minGapSize = 48.0f;
 	float gapDecreaseAmount;
-	int gapDecreaseStart = 4;
+	int gapDecreaseStart = 12;
 	int curGapStage = 1;
-	int maxGapDecreases = 8;
+	int maxGapDecreases = 7;
+	float timePerGapStage = 8.0f; // [Taj] 15 seconds
 	
 	boolean spawnNew = false;
 
@@ -118,17 +119,28 @@ public class obstacleGenerator
 
 	public void rockGenerationLoop()
 	{
+		if(curSpeedStage < maxSpeedIncreases)
 		Timer.schedule(new Task()
 		{
 			public void run()
 			{
 				updateValues();
-				System.out.println("test");
 				rockGenerationLoop();
 			} 
 			
 
-		}, 5.0f);
+		}, timePerStage);
+		else
+			Timer.schedule(new Task()
+			{
+				public void run()
+				{
+					updateValues();
+					rockGenerationLoop();
+				} 
+				
+
+			}, timePerGapStage);
 
 	}
 }
